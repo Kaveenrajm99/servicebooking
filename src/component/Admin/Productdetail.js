@@ -12,7 +12,7 @@ const Productdetail = () => {
 
 
     const fetchData = async () => {
-        const { data } = await axios.get('http://localhost:3001/servicedetail', {
+        const { data } = await axios.get('https://servicebookingapp.herokuapp.com/servicedetail', {
             headers: {
                 Authorization: window.localStorage.getItem("loginsecretkey")
             }
@@ -51,7 +51,7 @@ const Productdetail = () => {
         },
         onSubmit: async values => {
             try {
-                await axios.post('http://localhost:3001/service-detail', values)
+                await axios.post('https://servicebookingapp.herokuapp.com/service-detail', values)
                 alert("service generated:)")
                 navigate('/customerview')
 

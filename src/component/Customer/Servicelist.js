@@ -12,7 +12,7 @@ const Servicelist = () => {
 
 
     const fetchData = async () => {
-        const { data } = await axios.get('http://localhost:3001/servicedetail', {
+        const { data } = await axios.get('https://servicebookingapp.herokuapp.com/servicedetail', {
             headers: {
                 Authorization: window.localStorage.getItem("loginsecretkey")
             }

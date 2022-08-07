@@ -40,7 +40,7 @@ const Booking = () => {
         },
         onSubmit: async values => {
             try {
-                await axios.post("http://localhost:3001/bookingdetail", values)
+                await axios.post("https://servicebookingapp.herokuapp.com/bookingdetail", values)
                 alert("Booking Conformed ")
                 navigate('/email')
             } catch (error) {

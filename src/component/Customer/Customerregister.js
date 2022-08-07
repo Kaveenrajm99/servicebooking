@@ -33,7 +33,7 @@ const Customerregister = () => {
     },
     onSubmit: async (values) => {
       try {
-        await axios.post('http://localhost:3001/customer-register', values);
+        await axios.post('https://servicebookingapp.herokuapp.com/customer-register', values);
         alert('Registered Successfully')
         navigate('/customerlogin');
       } catch (error) {

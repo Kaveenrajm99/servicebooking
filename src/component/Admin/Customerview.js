@@ -12,7 +12,7 @@ const Customerview = () => {
 
 
     const fetchData = async () => {
-        const { data } = await axios.get('http://localhost:3001/bookingdetail', {
+        const { data } = await axios.get('https://servicebookingapp.herokuapp.com/bookingdetail', {
             headers: {
                 Authorization: window.localStorage.getItem("loginsecretkey")
             }

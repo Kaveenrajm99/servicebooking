@@ -22,7 +22,7 @@ const AdminLogin = () => {
         },
         onSubmit: async (values) => {
             try {
-                let loginData = await axios.post('http://localhost:3001/admin-login', values);
+                let loginData = await axios.post('https://servicebookingapp.herokuapp.com/admin-login', values);
                 window.localStorage.setItem('loginsecretkey', loginData.data.token);
                 {
                     loginData.data.message === "login successfully" ?

@@ -37,7 +37,7 @@ const Adminregister = () => {
         },
         onSubmit: async (values) => {
             try {
-                await axios.post('http://localhost:3001/admin-register', values);
+                await axios.post('https://servicebookingapp.herokuapp.com/admin-register', values);
                 alert('Registered Successfully')
                 navigate('/adminlogin');
             } catch (error) {
