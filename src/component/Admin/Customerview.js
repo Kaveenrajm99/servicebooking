@@ -69,8 +69,8 @@ const Customerview = () => {
                                         <td>{post.service}</td>
                                         <td>{post.date}</td>
                                         <td>
-                                            <div className='text-center'>                                                <Link to="/contact" type="button" className="btn btn-success m-1">Booked</Link>
-                                                <button type="button" className="btn btn-danger m-1">Service Completed</button>
+                                            <div className='text-center'>
+                                                <Link to="/confirmmail" type="button" className="btn btn-danger m-1">Service Completed</Link>
                                             </div>
                                         </td>
                                     </tr>

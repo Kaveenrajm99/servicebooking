@@ -13,7 +13,9 @@ import Productdetail from './component/Admin/Productdetail';
 import Customerview from './component/Admin/Customerview';
 import Servicelist from './component/Customer/Servicelist';
 import Booking from './component/Customer/Booking';
-import Emailsend from './component/Admin/Emailsend';
+import Emailsend from './component/Customer/Emailsend';
+import Confirmmail from './component/Admin/Confirmmail';
+//import { UserProvider } from './UserContext';
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
           <Route path="/servicelist" element={<Servicelist />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/email" element={< Emailsend />} />
+          <Route path="/confirmmail" element={< Confirmmail />} />
         </Routes>
       </div>
     </BrowserRouter>

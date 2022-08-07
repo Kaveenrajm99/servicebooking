@@ -1,12 +1,32 @@
 import React from 'react';
 import axios from 'axios';
 import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 
 
 const Productdetail = () => {
     const navigate = useNavigate();
+    const [posts, setPosts] = useState([]);
+
+
+    const fetchData = async () => {
+        const { data } = await axios.get('http://localhost:3001/servicedetail', {
+            headers: {
+                Authorization: window.localStorage.getItem("loginsecretkey")
+            }
+        })
+        setPosts(data);
+
+    };
+
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
     const formik = useFormik({
 
         initialValues: {
@@ -34,6 +54,7 @@ const Productdetail = () => {
                 await axios.post('http://localhost:3001/service-detail', values)
                 alert("service generated:)")
                 navigate('/customerview')
+
 
             } catch (error) {
                 console.log(error);
@@ -74,10 +95,42 @@ const Productdetail = () => {
                         <span className='text-warning'> {formik.errors.duration}</span>
                     </div>
                     <div >
-                        <button disabled={formik.errors.values} type={"submit"} className="btn btn-primary mt-4">submit</button>
+                        <button disabled={formik.errors.values} type={"submit"} className="btn btn-primary m-3">submit</button>
+                        <Link to='/customerview' className="btn btn-primary m-3">Go Back</Link>
                     </div>
                 </div>
-            </form>
+            </form><br />
+            <div >
+                <h1 className='text-center fw-bold mb-2'>Service List </h1>
+                <div className="card-body">
+                    <div className="table-responsive">
+                        <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr className='text-center fs-3'>
+
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Duration</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                {
+                                    posts.map((post) => {
+                                        return <tr className='fw-bold text-center mt-5'>
+                                            <td>{post.title}</td>
+                                            <td>{post.category}</td>
+                                            <td>{post.duration}</td>
+                                        </tr>
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
         </div>
     )
 }

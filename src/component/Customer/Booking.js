@@ -42,19 +42,12 @@ const Booking = () => {
             try {
                 await axios.post("http://localhost:3001/bookingdetail", values)
                 alert("Booking Conformed ")
-                navigate('/servicelist')
+                navigate('/email')
             } catch (error) {
                 console.log(error);
             }
         },
-    })
-
-    // useEffect(() => {
-    //     if (!window.localStorage.getItem("loginsecretkey")) {
-    //         navigate('/customerlogin')
-    //     }
-    // }, [])
-
+    });
 
     return (
 
